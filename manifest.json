@@ -5,25 +5,21 @@
   "permissions": [
     "declarativeContent",
     "activeTab",
-    "storage"
+    "storage",
+    "https://cdn-api-prd.sounds.com/"
   ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "content_scripts": [
     {
-      "matches": [
-        "https://sounds.com/*"
-      ],
+      "matches": ["https://sounds.com/*"],
       "run_at": "document_end",
-      "css": [
-        "styles/main.css"
-      ],
+      "css": ["styles/main.css"],
       "js": [
         "scripts/jquery-3.3.1.min.js",
+        "scripts/download.js",
         "scripts/main.js"
       ]
     }
