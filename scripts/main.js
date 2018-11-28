@@ -10,11 +10,29 @@ function getSoundID(child) {
   return child.parents(".SoundTable_Row").data().tmeta;
 }
 
+function network(id) {
+  let url = new URL("https://cdn-api-prd.sounds.com/api/search");
+  let params = {sound_id: id};
+
+  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+  fetch(url, {
+    mode: 'no-cors',
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
+  })
+    .then(function (response) {
+      console.log(response);
+    })
+}
+
 function soundController() {
   addDownload();
 
   $(".preview-download").on("click", function () {
-    getSoundID($(this));
+    const id = getSoundID($(this));
+    network(id);
   });
 }
 
