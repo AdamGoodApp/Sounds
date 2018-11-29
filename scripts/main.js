@@ -43,12 +43,12 @@ function soundController() {
       const id = getSoundID($(this));
       fetchSound(id);
     });
-  }, 1000);
+  }, 2000);
 }
 
 $(document).ready(function() {
   soundController();
-  $(".pagination li").on("click", function () {
+  $(".pagination").on("click", function () {
     soundController();
   });
 });
