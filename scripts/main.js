@@ -36,16 +36,19 @@ function downloadSound(data) {
 }
 
 function soundController() {
-  addDownloadIcon();
+  setTimeout(function () {
+    addDownloadIcon();
 
-  $(".preview-download").on("click", function() {
-    const id = getSoundID($(this));
-    fetchSound(id);
-  });
+    $(".preview-download").on("click", function () {
+      const id = getSoundID($(this));
+      fetchSound(id);
+    });
+  }, 1000);
 }
 
 $(document).ready(function() {
-  setTimeout(function() {
+  soundController();
+  $(".pagination li").on("click", function () {
     soundController();
-  }, 1000);
+  });
 });
