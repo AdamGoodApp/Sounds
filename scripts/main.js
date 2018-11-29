@@ -32,6 +32,7 @@ function fetchSound(id) {
 
 function downloadSound(data) {
   const previewMp3 = data.result.sounds[0].preview_mp3;
+  window.open(previewMp3, "_blank");
 }
 
 function soundController() {
